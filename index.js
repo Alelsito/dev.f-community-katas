@@ -16,12 +16,26 @@
 
 /* Grasshopper - Summation */
 
-const summation = function (num) {
-  let sum = 0
-  for (let i = 1; i <= num; i++) {
-    sum = sum + i
-  }
-  return sum
+// const summation = function (num) {
+//   let sum = 0
+//   for (let i = 1; i <= num; i++) {
+//     sum = sum + i
+//   }
+//   return sum
+// }
+
+// console.log(summation(32))
+
+/* Calculate average */
+
+function findAverage (array) {
+  if (array.length > 0) {
+    let total = 0
+    for (let i = 0; i < array.length; i++) {
+      total += array[i]
+    }
+    return total / array.length
+  } else return 0
 }
 
-console.log(summation(32))
+console.log(findAverage([0, 3, 6, 7, 21, 35, 57]))
