@@ -28,14 +28,29 @@
 
 /* Calculate average */
 
-function findAverage (array) {
-  if (array.length > 0) {
-    let total = 0
-    for (let i = 0; i < array.length; i++) {
-      total += array[i]
-    }
-    return total / array.length
-  } else return 0
+// function findAverage (array) {
+//   if (array.length > 0) {
+//     let total = 0
+//     for (let i = 0; i < array.length; i++) {
+//       total += array[i]
+//     }
+//     return total / array.length
+//   } else return 0
+// }
+
+// console.log(findAverage([0, 3, 6, 7, 21, 35, 57]))
+
+/* Reverse a Number */
+
+function reverseNumber (n) {
+  if (n < 0) {
+    const reverseArray = n.toString().split('').reverse()
+    reverseArray.unshift('-')
+    return parseInt(reverseArray.join(''))
+  } else {
+    return parseInt(n.toString().split('').reverse().join(''))
+  }
 }
 
-console.log(findAverage([0, 3, 6, 7, 21, 35, 57]))
+console.log(reverseNumber(-34214))
+console.log(reverseNumber(862311))
