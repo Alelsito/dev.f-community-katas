@@ -42,15 +42,29 @@
 
 /* Reverse a Number */
 
-function reverseNumber (n) {
-  if (n < 0) {
-    const reverseArray = n.toString().split('').reverse()
-    reverseArray.unshift('-')
-    return parseInt(reverseArray.join(''))
-  } else {
-    return parseInt(n.toString().split('').reverse().join(''))
+// function reverseNumber (n) {
+//   if (n < 0) {
+//     const reverseArray = n.toString().split('').reverse()
+//     reverseArray.unshift('-')
+//     return parseInt(reverseArray.join(''))
+//   } else {
+//     return parseInt(n.toString().split('').reverse().join(''))
+//   }
+// }
+
+// console.log(reverseNumber(-34214))
+// console.log(reverseNumber(862311))
+
+/* Genetic Algorithm Series - #1 Generate */
+
+const generate = length => {
+  let binaryString = ''
+  for (let i = 0; i < length; i++) {
+    binaryString += Math.floor(Math.random() * Math.floor(2))
   }
+  return binaryString
 }
 
-console.log(reverseNumber(-34214))
-console.log(reverseNumber(862311))
+console.log(generate(16))
+console.log(generate(32))
+console.log(generate(64))
