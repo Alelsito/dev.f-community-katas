@@ -57,14 +57,51 @@
 
 /* Genetic Algorithm Series - #1 Generate */
 
-const generate = length => {
-  let binaryString = ''
-  for (let i = 0; i < length; i++) {
-    binaryString += Math.floor(Math.random() * Math.floor(2))
+// const generate = length => {
+//   let binaryString = ''
+//   for (let i = 0; i < length; i++) {
+//     binaryString += Math.floor(Math.random() * Math.floor(2))
+//   }
+//   return binaryString
+// }
+
+// console.log(generate(16))
+// console.log(generate(32))
+// console.log(generate(64))
+
+/* Genetic Algorithm Series - #2 Mutation */
+
+const mutate = (chromosome, p) => {
+  let mutate = []
+  const split = chromosome.split('')
+
+  if (p === 1) {
+    split.forEach(e => e === '1' ? mutate.push(0) : mutate.push(1))
+  } else if (p === 0) {
+    mutate = split
+  } else {
+    split.forEach(e => {
+      const r = Math.random()
+      if (r < p) {
+        if (e === '1') { mutate.push(0) } else { mutate.push(1) }
+      } else (mutate.push(parseInt(e)))
+    })
   }
-  return binaryString
+
+  return mutate.join('')
 }
 
-console.log(generate(16))
-console.log(generate(32))
-console.log(generate(64))
+const zero = Array(10).join('0')
+const one = Array(10).join('1')
+
+// 100% mutate
+console.log(mutate(zero, 1))
+console.log(mutate(one, 1))
+
+// 0% mutate
+console.log(mutate(zero, 0))
+console.log(mutate(one, 0))
+
+// 50% mutate
+console.log(mutate(zero, 0.5))
+console.log(mutate(one, 0.5))
