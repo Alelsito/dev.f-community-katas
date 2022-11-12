@@ -158,14 +158,29 @@
 
 // Extract the domain name from a URL
 
-const github = 'http://github.com/carbonfive/raygun'
-const zombieBites = 'http://www.zombie-bites.com'
-const cnet = 'https://www.cnet.com'
+// const github = 'http://github.com/carbonfive/raygun'
+// const zombieBites = 'http://www.zombie-bites.com'
+// const cnet = 'https://www.cnet.com'
 
-function domainName (url) {
-  return url.replace(/.+\/|www.|\..+/g, '')
+// function domainName (url) {
+//   return url.replace(/.+\/|www.|\..+/g, '')
+// }
+
+// console.log(domainName(github))
+// console.log(domainName(zombieBites))
+// console.log(domainName(cnet))
+
+// Find the missing letter
+
+function findMissingLetter (array) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  if (array[0] !== array[0].toLowerCase()) { alphabet = alphabet.toUpperCase() }
+  const startPoint = alphabet.indexOf(array[0])
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== alphabet[startPoint + i]) { return alphabet[startPoint + i] }
+  }
 }
 
-console.log(domainName(github))
-console.log(domainName(zombieBites))
-console.log(domainName(cnet))
+console.log(findMissingLetter(['a', 'b', 'c', 'd', 'f']))
+console.log(findMissingLetter(['A', 'B', 'C', 'D', 'F']))
