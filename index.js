@@ -172,15 +172,32 @@
 
 // Find the missing letter
 
-function findMissingLetter (array) {
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz'
-  if (array[0] !== array[0].toLowerCase()) { alphabet = alphabet.toUpperCase() }
-  const startPoint = alphabet.indexOf(array[0])
+// function findMissingLetter (array) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+//   if (array[0] !== array[0].toLowerCase()) { alphabet = alphabet.toUpperCase() }
+//   const startPoint = alphabet.indexOf(array[0])
 
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] !== alphabet[startPoint + i]) { return alphabet[startPoint + i] }
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i] !== alphabet[startPoint + i]) { return alphabet[startPoint + i] }
+//   }
+// }
+
+// console.log(findMissingLetter(['a', 'b', 'c', 'd', 'f']))
+// console.log(findMissingLetter(['A', 'B', 'C', 'D', 'F']))
+
+// Two Sum
+
+function twoSum (numbers, target) {
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = 1; j < numbers.length; j++) {
+      if (numbers[i] + numbers[j] === target) {
+        return [numbers.indexOf(numbers[i]), numbers.lastIndexOf(numbers[j])].sort()
+      }
+    }
   }
 }
 
-console.log(findMissingLetter(['a', 'b', 'c', 'd', 'f']))
-console.log(findMissingLetter(['A', 'B', 'C', 'D', 'F']))
+console.log(twoSum([1, 2, 3], 4))
+console.log(twoSum([1234, 5678, 9012], 14690))
+console.log(twoSum([2, 2, 3], 4))
+console.log(twoSum([2, 3, 1], 4))
