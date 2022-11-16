@@ -187,17 +187,33 @@
 
 // Two Sum
 
-function twoSum (numbers, target) {
-  for (let i = 0; i < numbers.length; i++) {
-    for (let j = 1; j < numbers.length; j++) {
-      if (numbers[i] + numbers[j] === target) {
-        return [numbers.indexOf(numbers[i]), numbers.lastIndexOf(numbers[j])].sort()
-      }
-    }
+// function twoSum (numbers, target) {
+//   for (let i = 0; i < numbers.length; i++) {
+//     for (let j = 1; j < numbers.length; j++) {
+//       if (numbers[i] + numbers[j] === target) {
+//         return [numbers.indexOf(numbers[i]), numbers.lastIndexOf(numbers[j])].sort()
+//       }
+//     }
+//   }
+// }
+
+// console.log(twoSum([1, 2, 3], 4))
+// console.log(twoSum([1234, 5678, 9012], 14690))
+// console.log(twoSum([2, 2, 3], 4))
+// console.log(twoSum([2, 3, 1], 4))
+
+// Scramblies
+
+function scramble (str1, str2) {
+  for (let i = 0; i < str2.length; i++) {
+    if (str1.indexOf(str2[i]) !== -1) {
+      str1 = str1.replace(str2[i], '')
+    } else return false
   }
+  return true
 }
 
-console.log(twoSum([1, 2, 3], 4))
-console.log(twoSum([1234, 5678, 9012], 14690))
-console.log(twoSum([2, 2, 3], 4))
-console.log(twoSum([2, 3, 1], 4))
+console.log(scramble('rkqodlw', 'world'))
+console.log(scramble('cedewaraaossoqqyt', 'codewars'))
+console.log(scramble('katas', 'steak'))
+console.log(scramble('scriptjavx', 'javascript'))
